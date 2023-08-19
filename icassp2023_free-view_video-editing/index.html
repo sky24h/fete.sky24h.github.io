@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script type="text/javascript" src="../../../js/analytics.js">
+  </script>
+  <title>Free-View Expressive Talking Head Video Editing</title>
+  <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
+</head>
+
+<body>
+  <div class="content">
+    <h2>Free-View Expressive Talking Head Video Editing</h2>
+    <p id="authors">
+      <a href="https://sky24h.github.io/">Yuantian Huang</a>&emsp;
+      <a href="http://iizuka.cs.tsukuba.ac.jp/index_eng.html">Satoshi Iizuka</a>&emsp;
+      <a href="http://www.cvlab.cs.tsukuba.ac.jp/~kfukui/english/indexE.html">Kazuhiro Fukui</a><br>
+      <br>
+      ICASSP 2023
+    </p>
+
+    <a><img src="./data/teaser.jpg" alt="teaser image"></a>
+  </div>
+  <div class="content">
+    <h3>Abstract:</h3>
+    <p>We present a novel framework for talking head video editing, allowing users to freely edit head pose, emotion,
+      and eye blink while maintaining audio-visual synchronization. Unlike previous approaches that mainly focus on
+      generating a talking head video, our proposed model is able to edit the talking heads of an input video and
+      restore it to full frames, which supports a broader range of applications. Our proposed framework consists of two
+      parts: a) a reconstruction-based generator that can generate talking heads fitting to the original frame while
+      corresponding to freely controllable attributes, including head pose, emotion, and eye blink. b) a
+      multiple-attribute discriminator that enforces attribute-visual synchronization. We additionally introduce
+      attention modules and perceptual loss to improve the overall generation quality. We compare existing approaches as
+      corroborated by quantitative metrics and qualitative comparisons.
+    </p>
+
+    <p id="presentation"><video controls src="./data/AttributesEditing_ICASSP2023_Huang.mp4" width="750"></video></p>
+    <br>
+    <a class="button" href="https://ieeexplore.ieee.org/abstract/document/10095745">URL</a>
+    <a class="button" href="./data/Free_view_Expressive_Talking_Head_Video_Editing_ICASSP_2023_CameraReady.pdf">PDF</a>
+    <a class="button" href="./data/AttributesEditing_ICASSP2023_Huang.pdf">Slide</a>
+    <br>
+    <br>
+    Code and demo will be released soon.
+    <!-- <a class="button" disabled>Demo</a>
+    <a class="button" disabled>Code</a> -->
+    <br><br>
+  </div>
+
+  <div class="content">
+    <h3>Model Architecture:</h3>
+    <p>The encoders embed inputs together and feed them into the generator, while the input audio Mel spectrogram, head
+      pose, emotion, and eye blink are extracted from target frames during the training stage. A set of synchronization
+      losses are then calculated by a pre-trained multi-attribute discriminator between generated frames and input
+      attributes to enforce attribute-visual synchronization.<br>
+      <br>
+    </p><img src="./data/network.jpg" border="0"><br><br>
+  </div>
+
+  <div class="content">
+    <h3>Results:</h3>
+    <!-- add a video here -->
+    <p id="result1"><video controls src="./data/result1.mp4" width="800"></video></p><br>
+  </div>
+
+  <!-- 
+  <div class="content">
+    <h3>Comparisons:</h3>
+    <p>
+      Comparison with combinations of existing restoration and colorization approaches, i.e., the approach of [Zhang et
+      al. 2017b] and [Yu et al. 2018] for restoration, and [Zhang et al. 2017a] and [Vondrick et al. 2018] for
+      colorization on real world vintage films and the videos from Youtube-8M dataset. We use the same reference images
+      in the above remastering results for the vintage films. For the videos from Youtube-8M dataset, we randomly sample
+      a subset of 300 frames for videos from Youtube-8M dataset, and apply both example-based and algorithm-based
+      deterioration effects. For the reference color images, we provide every 60th frame starting from the first frame
+      as a reference image. In the following results, each video is an input video, [Zhang et al. 2017b] and [Zhang et
+      al. 2017a], [Yu et al. 2018] and [Zhang et al. 2017a], [Zhang et al. 2017b] and [Vondrick et al. 2018], [Yu et al.
+      2018] and [Vondrick et al. 2018], and ours, in order from left to right, top to bottom.<br>
+    <ul>
+      <li>Richard Zhang, Jun-Yan Zhu, Phillip Isola, Xinyang Geng, Angela S Lin, Tianhe Yu, and Alexei A Efros. 2017a.
+        Real-Time User-Guided Image Colorization with Learned Deep Priors. ACM Transactions on Graphics (Proceedings of
+        SIGGRAPH) 9, 4 (2017).</li>
+      <li>Carl Vondrick, Abhinav Shrivastava, Alireza Fathi, Sergio Guadarrama, and Kevin Murphy. 2018. Tracking emerges
+        by colorizing videos. In European Conference on Computer Vision (ECCV).</li>
+      <li>Kai Zhang, Wangmeng Zuo, Yunjin Chen, Deyu Meng, and Lei Zhang. 2017b. Beyond a gaussian denoiser: Residual
+        learning of deep cnn for image denoising. IEEE Transactions on Image Processing 26, 7 (2017), 3142–3155.</li>
+      <li>Yuchen Fan, Jiahui Yu, and Thomas S Huang. 2018. Wide-activated Deep Residual Networks based Restoration for
+        BPG-compressed Images. In IEEE Conference on Computer Vision and Pattern Recognition Workshops.</li>
+    </ul>
+    <br>
+    </p>
+    <h4>Vintage Films:</h4>
+    <table border="0" align="center" cellpadding="10">
+
+      <tr>
+        <th>
+          <div class="container3">
+            <div>Input Video</div>
+            <div>[Zhang et al. 2017b] and [Zhang et al. 2017a]</div>
+            <div>[Yu et al. 2018] and [Zhang et al. 2017a]</div>
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <th>
+          <div class="container3">
+            <div>[Zhang et al. 2017b] and [Vondrick et al. 2018]</div>
+            <div>[Yu et al. 2018] and [Vondrick et al. 2018]</div>
+            <div>Ours</div>
+          </div>
+        </th>
+      </tr>
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/a-bomb_blast_effects_512kb_comp.mp4"
+            width="750"></video><br></td>
+      </tr>
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/FreedomH1956_512kb_comp.mp4" width="750"></video><br>
+        </td>
+      </tr>
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/right_to_health_1_512kb_comp.mp4"
+            width="750"></video><br></td>
+      </tr>
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/threestoogescolorcraziness_512kb_comp.mp4"
+            width="750"></video><br></td>
+      </tr>
+    </table>
+    <h4>Synthetic Data:</h4>
+    <table border="0" align="center" cellpadding="10">
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/-0AEk0AapjM_comp.mp4" width="750"></video><br></td>
+      </tr>
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/-ALl_YBxPF0_comp.mp4" width="750"></video><br></td>
+      </tr>
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/-0J_GJg_nXc_comp.mp4" width="750"></video><br></td>
+      </tr>
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/-6VFYPRHPis_comp.mp4" width="750"></video><br></td>
+      </tr>
+      <tr valign="top">
+        <td><video controls src="./data/comparisons/remastering/-3tON7YaSl8_comp.mp4" width="750"></video><br></td>
+      </tr>
+    </table>
+    <p>Additional results are <a href="../extra.html">here</a>.</p>
+  </div> -->
+
+  <div class="content">
+    <h3>Publication:</h3>
+    Y. Huang, S. Iizuka and K. Fukui, "Free-View Expressive Talking Head Video Editing," ICASSP 2023 - 2023 IEEE
+    International Conference on Acoustics, Speech and Signal Processing (ICASSP), Rhodes Island, Greece, 2023, pp. 1-5,
+    doi: 10.1109/ICASSP49357.2023.10095745.<br>
+    <code>@INPROCEEDINGS{Huang2023FETE,
+    author={Huang, Yuantian and Iizuka, Satoshi and Fukui, Kazuhiro},<br>
+    booktitle={ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},<br>
+    title={Free-View Expressive Talking Head Video Editing},<br>
+    year={2023},<br>
+    volume={},<br>
+    number={},<br>
+    pages={1-5},<br>
+    keywords={},<br>
+    doi={10.1109/ICASSP49357.2023.10095745},<br>
+    url={https://ieeexplore.ieee.org/abstract/document/10095745},<br>
+    ISSN={},<br>
+    month={June},<br>
+    }</code>
+    <!-- This work was partially supported by JST -->
+  </div>
+</body>
+
+</html>
