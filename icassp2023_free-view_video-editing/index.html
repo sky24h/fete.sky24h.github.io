@@ -40,11 +40,6 @@
     <a class="button" href="https://ieeexplore.ieee.org/abstract/document/10095745">URL</a>
     <a class="button" href="./data/Free_view_Expressive_Talking_Head_Video_Editing_ICASSP_2023_CameraReady.pdf">PDF</a>
     <a class="button" href="./data/AttributesEditing_ICASSP2023_Huang.pdf">Slide</a>
-    <a style="text-align: center;"
-      href="https://huggingface.co/spaces/sky24h/Free-View_Expressive_Talking_Head_Video_Editing">
-      <img src="./data/huggingface.svg" alt="huggingface" height="28px"
-        style="vertical-align:middle; padding:8px 0px 10px;">
-    </a>
     <br>
     <br>
     <!-- Code and demo will be released soon. -->
@@ -54,9 +49,24 @@
   </div>
 
   <div class="content">
+    <h3>Online Demo:</h3>
+    Click to open in full screen:
+    <a style="text-align: center;"
+      href="https://huggingface.co/spaces/sky24h/Free-View_Expressive_Talking_Head_Video_Editing">
+      <img src="./data/huggingface.svg" alt="huggingface" height="16px"
+        style="vertical-align:middle; padding:8px 0px 10px;">
+    </a>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.41.0/gradio.js"></script>
+
+    <gradio-app src="https://sky24h-free-view-expressive-talking-head-video-editing.hf.space"></gradio-app>
+  </div>
+
+  <div class="content">
     <h3>Model Architecture:</h3>
-    <p>The encoders embed inputs together and feed them into the generator, while the input audio Mel spectrogram, head
-      pose, emotion, and eye blink are extracted from target frames during the training stage. A set of synchronization
+    <p>The encoders embed inputs together and feed them into the generator, while the input audio Mel spectrogram,
+      head
+      pose, emotion, and eye blink are extracted from target frames during the training stage. A set of
+      synchronization
       losses are then calculated by a pre-trained multi-attribute discriminator between generated frames and input
       attributes to enforce attribute-visual synchronization.<br>
       <br>
@@ -162,7 +172,8 @@
   <div class="content">
     <h3>Publication:</h3>
     Y. Huang, S. Iizuka and K. Fukui, "Free-View Expressive Talking Head Video Editing," ICASSP 2023 - 2023 IEEE
-    International Conference on Acoustics, Speech and Signal Processing (ICASSP), Rhodes Island, Greece, 2023, pp. 1-5,
+    International Conference on Acoustics, Speech and Signal Processing (ICASSP), Rhodes Island, Greece, 2023, pp.
+    1-5,
     doi: 10.1109/ICASSP49357.2023.10095745.<br>
     <code>@INPROCEEDINGS{Huang2023FETE,
     author={Huang, Yuantian and Iizuka, Satoshi and Fukui, Kazuhiro},<br>
