@@ -7,6 +7,14 @@
   </script>
   <title>Controllable Multi-domain Semantic Artwork Synthesis</title>
   <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
+  <style>
+    iframe {
+      transform: scale(0.63);
+      transform-origin: top left;
+      width: 1280px;
+      height: 1000px;
+    }
+  </style>
 </head>
 
 <body>
@@ -48,17 +56,27 @@
     <a class="button" href="https://arxiv.org/abs/2308.10111">arXiv</a>
     <a class="button" href="./data/Controllable_Multi-domain_Semantic_Artwork_Synthesis_CVMJ_CameraReady.pdf">PDF</a>
     <!-- <a class="button" href="./data/AttributesEditing_ICASSP2023_Huang.pdf">Slide</a> -->
-    <a style="text-align: center;"
-      href="https://huggingface.co/spaces/sky24h/Controllable_Multi-domain_Semantic_Artwork_Synthesis">
-      <img src="./data/huggingface.svg" alt="huggingface" height="28px"
-        style="vertical-align:middle; padding:8px 0px 10px;">
-    </a>
     <br>
     <br>
     <!-- Code will be released after official publication. -->
     <!-- <a class="button" disabled>Demo</a>
     <a class="button" disabled>Code</a> -->
     <br><br>
+  </div>
+
+  <!-- scale to half -->
+  <div class="content">
+    <h3>Interactive Demo:</h3>
+    Click to open in full screen:
+    <a style="text-align: center;"
+      href="https://huggingface.co/spaces/sky24h/Controllable_Multi-domain_Semantic_Artwork_Synthesis">
+      <img src="./data/huggingface.svg" alt="huggingface" height="16px"
+        style="vertical-align:middle; padding:8px 0px 10px;">
+    </a>
+    <iframe id="demo-iframe" src="https://sky24h-controllable-multi-domain-semantic-artwor-ba717d5.hf.space"
+      frameborder="0" no-scrolling="true" seamless="true">
+    </iframe>
+    <br>
   </div>
 
   <!-- <div class="content">
