@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script type="text/javascript" src="../../../js/analytics.js">
+  </script>
+  <title>Training-Free Zero-Shot Semantic Segmentation with LLM Refinement</title>
+  <link rel="stylesheet" type="text/css" href="./style.css" media="screen">
+</head>
+
+<body>
+  <div class="content">
+    <h2>Training-Free Zero-Shot Semantic Segmentation with LLM Refinement</h2>
+    <p id="authors">
+      <a href="https://sky24h.github.io/">Yuantian Huang</a>&emsp;
+      <a href="http://iizuka.cs.tsukuba.ac.jp/index_eng.html">Satoshi Iizuka</a>&emsp;
+      <a href="http://www.cvlab.cs.tsukuba.ac.jp/~kfukui/english/indexE.html">Kazuhiro Fukui</a><br>
+      <br>
+      BMVC 2024 (accepted)
+    </p>
+
+    <a><img src="./data/results.jpg" alt="teaser image"></a>
+  </div>
+  <div class="content">
+    <h3>Abstract:</h3>
+    <p>Semantic segmentation models are predominantly based on supervised or unsupervised learning methodologies,
+      which require substantial effort in annotation or training.
+      In this study, we present a novel framework that leverages multiple pre-trained foundational models for
+      semantic segmentation tasks on previously unseen images, eliminating
+      the need for additional training. Our framework utilizes image recognition models to
+      transform an input image into textual information. This text information is then used to
+      engage an advanced Large Language Model (LLM) to predict the presence of specific
+      classes within the given image. The labels predicted by the LLM are subsequently processed through
+      an open-set detection and segmentation model to generate our ultimate
+      outcomes. To ensure that the class information is precisely aligned with the intended
+      context, we incorporate both a pre-refinement and a post-refinement procedure utilizing
+      the LLM. The segmentation model is further modified to accept both bounding boxes and
+      point prompts, resulting in higher accuracy than original usage that only accepts bounding boxes as input.
+      Our proposed framework accomplishes training-free zero-shot semantic segmentation, requiring only the input image
+      and customizable target classes for different scenarios as inputs. Experiments indicate that the proposed framework demonstrates
+      the capacity to execute semantic segmentation effectively across various datasets.
+      Notably, our results surpass those of existing unsupervised models despite the absence
+      of any training procedure.
+    </p>
+
+    <!-- <p id="presentation"><video controls src="./data/AttributesEditing_ICASSP2023_Huang.mp4" width="750"></video></p> -->
+    <br>
+    <!-- <a class="button" href="https://ieeexplore.ieee.org/abstract/document/10095745">URL</a> -->
+    <a class="button" href="https://github.com/sky24h/Training-Free_Zero-Shot_Semantic_Segmentation_with_LLM_Refinement">Code</a>
+    <a class="button" href=".">PDF (CameraReady version will be released soon.) </a>
+    <!-- <a class="button" href="./data/AttributesEditing_ICASSP2023_Huang.pdf">Slide</a> -->
+    <br>
+    <br>
+    <!-- CameraReady version will be released soon. -->
+    <!-- <a class="button" disabled>Demo</a>
+    <a class="button" disabled>Code</a> -->
+    <br><br>
+  </div>
+
+
+  <div class="content">
+    <h3>Proposed Framework:</h3>
+    <p>Our framework consists of three sub-components: a) Image recognition models,
+      which include a Recognize Anything Plus Model (RAM++) [14] and a BLIP-2 [19] model. These
+      models process input images to generate a list of tags and a caption that reflects the textual
+      information present in the input image. b) An advanced GPT-4 [23] model is employed for
+      a pre-refinement process, which process the textual information into predicted classes for
+      the segmentation model. The system automatically generates prompts based on predefined
+      target classes specific to different datasets. c) a pre-trained open-set segmentation model
+      Grounded-SAM [28] that is able to detect and segment certain classes in the images based
+      on predicted classes. A post-refinement process is applied during the detection phase using
+      the same GPT-4 model.
+      <br>
+      <!-- <br> -->
+    </p><img src="./data/overview.jpg" border="0"><br><br>
+  </div>
+
+  <!-- <div class="content">
+    <h3>Results:</h3>
+    <p id="result1"><video controls src="./data/result1.mp4" width="800"></video></p><br>
+  </div> -->
+
+
+  <div class="content">
+    <h3>Online Demo:</h3>
+    Click to open in full screen:
+    <a style="text-align: center;"
+      href="https://huggingface.co/spaces/sky24h/Training-Free_Zero-Shot_Semantic_Segmentation_with_LLM_Refinement">
+      <img src="./data/huggingface.svg" alt="huggingface" height="16px"
+        style="vertical-align:middle; padding:8px 0px 10px;">
+    </a>
+    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.41.0/gradio.js"></script>
+
+    <gradio-app src="https://sky24h-training-free_zero-shot_semantic_segmentation_with_llm_refinement.hf.space"></gradio-app>
+  </div>
+
+  <div class="content">
+    <h3>Publication:</h3>
+    Y. Huang, S. Iizuka and K. Fukui, "Training-Free Zero-Shot Semantic Segmentation with LLM Refinement," The British Machine Vision Conference (BMCV) 2024.<br>
+    <code>@INPROCEEDINGS{Huang2024SemSegLLM,<br>
+    author={Huang, Yuantian and Iizuka, Satoshi and Fukui, Kazuhiro},<br>
+    booktitle={The British Machine Vision Conference (BMVC) 2024},<br>
+    title={Training-Free Zero-Shot Semantic Segmentation with LLM Refinement},<br>
+    year={2024},<br>
+    }</code>
+    <!-- This work was partially supported by JST -->
+  </div>
+</body>
+
+</html>
